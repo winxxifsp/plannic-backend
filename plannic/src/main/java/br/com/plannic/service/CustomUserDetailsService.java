@@ -1,7 +1,7 @@
 package br.com.plannic.service;
 
 
-import br.com.plannic.entity.User;
+import br.com.plannic.model.User;
 import br.com.plannic.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,7 +1,7 @@
 package br.com.plannic.controller;
 
 
-import br.com.plannic.entity.AuthRequest;
+import br.com.plannic.model.AuthRequest;
 import br.com.plannic.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,7 +21,7 @@ public class WelcomeController {
 
     @GetMapping("/")
     public String welcome() {
-        return "Welcome to javatechie !!";
+        return "WINXS IFSP";
     }
 
     @PostMapping("/authenticate")
@@ -31,7 +31,7 @@ public class WelcomeController {
                     new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword())
             );
         } catch (Exception ex) {
-            throw new Exception("inavalid username/password");
+            throw new Exception("erro.");
         }
         return jwtUtil.generateToken(authRequest.getUserName());
     }

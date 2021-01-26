@@ -1,4 +1,4 @@
-package br.com.plannic.entity;
+package br.com.plannic.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
