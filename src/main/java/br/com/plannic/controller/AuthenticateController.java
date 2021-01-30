@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping()
-public class WelcomeController {
+public class AuthenticateController {
 
     @Autowired
     private JwtUtil jwtUtil;
@@ -29,7 +29,7 @@ public class WelcomeController {
                     new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword())
             );
         } catch (Exception ex) {
-            throw new Exception("erro.");
+            throw new Exception("erro na autenticação.");
         }
         return jwtUtil.generateToken(authRequest.getUserName());
     }

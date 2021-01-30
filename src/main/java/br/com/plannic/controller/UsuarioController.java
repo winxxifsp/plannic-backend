@@ -20,7 +20,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping
+    @PostMapping("/cadastro")
     public ResponseEntity<Usuario> save(@Valid @RequestBody Usuario usuario){
         usuarioService.save(usuario);
         return new ResponseEntity<>(HttpStatus.CREATED);
