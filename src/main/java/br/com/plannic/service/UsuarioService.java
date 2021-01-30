@@ -2,6 +2,8 @@ package br.com.plannic.service;
 
 import br.com.plannic.model.Usuario;
 import br.com.plannic.repository.UsuarioRepository;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,7 @@ public class UsuarioService {
 //    @Autowired
 //    private UsuarioRepository repository;
 
+    private static Logger logger = Logger.getLogger(UsuarioService.class);
 
     private final UsuarioRepository repository;
 
@@ -32,6 +35,7 @@ public class UsuarioService {
         List<Usuario> usuarios = repository.findAll();
 
         if (!usuarios.isEmpty()) {
+            logger.info("Usuários recuperados com sucesso.");
             return  usuarios
                     .stream()
                     .map(usuario -> mapper.map(usuario, Usuario.class))
@@ -50,6 +54,7 @@ public class UsuarioService {
         Optional<Usuario> usuarios = this.repository.findById(usuario.getId());
 
         if (usuarios.isPresent()) {
+            logger.info("Usuários atualizado com sucesso.");
             ModelMapper mapper = new ModelMapper();
             repository.save(mapper.map(usuario, Usuario.class));
             return true;
