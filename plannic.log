@@ -2,3 +2,9 @@
 [main] INFO  br.com.plannic.service.UsuarioService  - testando log
 [main] INFO  br.com.plannic.service.UsuarioService  - ttttttttttttteste
 [main] INFO  br.com.plannic.service.UsuarioService  - ttttttttttttteste
+[main] INFO  br.com.plannic.service.UsuarioService  - ttttttttttttteste
+30 jan. 2021 20:14:43,321 1    [main] INFO  UsuarioService  - ttttttttttttteste
+ttttttttttttteste
+ttttttttttttteste
+30 jan. 2021 20:32:05,800 0    [main] INFO  UsuarioService  - ttttttttttttteste
+30 jan. 2021 20:33:08,132 0    [main] INFO  UsuarioService  - ttttttttttttteste
