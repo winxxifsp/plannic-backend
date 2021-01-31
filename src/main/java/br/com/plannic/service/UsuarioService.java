@@ -3,6 +3,8 @@ package br.com.plannic.service;
 import br.com.plannic.model.Usuario;
 import br.com.plannic.repository.UsuarioRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -18,6 +20,9 @@ public class UsuarioService {
 
 //    @Autowired
 //    private UsuarioRepository repository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
     private final UsuarioRepository repository;
@@ -41,6 +46,8 @@ public class UsuarioService {
     }
 
     public void save(Usuario usuario) {
+        var senha = usuario.getPassword();
+        usuario.setPassword(passwordEncoder.encode(senha));
         ModelMapper mapper = new ModelMapper();
         repository.save(mapper.map(usuario, Usuario.class));
     }
