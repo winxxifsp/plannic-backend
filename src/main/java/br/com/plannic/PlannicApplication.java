@@ -7,9 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class PlannicApplication {
-	
+
+	private static Logger logger = Logger.getLogger(UsuarioService.class);
+
 	public static void main(String[] args) {
-		SpringApplication.run(PlannicApplication.class, args);
+
+		logger.info("logando no banco");
+	SpringApplication.run(PlannicApplication.class, args);
 	}
 
 }
