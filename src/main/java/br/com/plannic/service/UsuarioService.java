@@ -1,7 +1,9 @@
 package br.com.plannic.service;
 
+import br.com.plannic.controller.AuthenticateController;
 import br.com.plannic.model.Usuario;
 import br.com.plannic.repository.UsuarioRepository;
+import org.apache.log4j.Logger;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,8 +26,10 @@ public class UsuarioService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
     private final UsuarioRepository repository;
+
+    private static Logger logger = Logger.getLogger(UsuarioService.class);
+
 
     public UsuarioService(UsuarioRepository repository) {
         this.repository = repository;
@@ -37,6 +41,7 @@ public class UsuarioService {
         List<Usuario> usuarios = repository.findAll();
 
         if (!usuarios.isEmpty()) {
+            logger.info("Usuários recuperados.");
             return  usuarios
                     .stream()
                     .map(usuario -> mapper.map(usuario, Usuario.class))
@@ -46,6 +51,7 @@ public class UsuarioService {
     }
 
     public void save(Usuario usuario) {
+        logger.info("Usuário salvo.");
         var senha = usuario.getPassword();
         usuario.setPassword(passwordEncoder.encode(senha));
         ModelMapper mapper = new ModelMapper();
@@ -57,6 +63,7 @@ public class UsuarioService {
         Optional<Usuario> usuarios = this.repository.findById(usuario.getId());
 
         if (usuarios.isPresent()) {
+            logger.info("Usuário atualizado.");
             ModelMapper mapper = new ModelMapper();
             repository.save(mapper.map(usuario, Usuario.class));
             return true;
@@ -70,6 +77,7 @@ public class UsuarioService {
         Optional<Usuario> usuarios = this.repository.findById(usuario.getId());
 
         if (usuarios.isPresent()) {
+            logger.info("Usuário deletado.");
             this.repository.deleteById(usuario.getId());
             return true;
         }
