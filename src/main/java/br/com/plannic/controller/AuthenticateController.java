@@ -25,7 +25,7 @@ public class AuthenticateController {
 
     private static Logger logger = Logger.getLogger(AuthenticateController.class);
 
-    @GetMapping("/{email}/{pswd}")
+    @GetMapping("authenticate/{email}/{pswd}")
     public String generateToken(@PathVariable String email,@PathVariable String pswd) throws Exception {
         try {
             logger.info("Autenticando o usuário.");
