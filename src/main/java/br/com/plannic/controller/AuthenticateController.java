@@ -22,15 +22,15 @@ public class AuthenticateController {
         return "WINXS IFSP";
     }
 
-    @PostMapping("/authenticate")
-    public String generateToken(@RequestBody AuthRequest authRequest) throws Exception {
+    @GetMapping("/{email}/{pswd}")
+    public String generateToken(@PathVariable String email,@PathVariable String pswd) throws Exception {
         try {
             authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword())
+                    new UsernamePasswordAuthenticationToken(email, pswd)
             );
         } catch (Exception ex) {
             throw new Exception("erro na autenticação.");
         }
-        return jwtUtil.generateToken(authRequest.getEmail());
+        return jwtUtil.generateToken(email);
     }
 }
