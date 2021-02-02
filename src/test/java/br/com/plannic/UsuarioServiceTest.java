@@ -6,21 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@SpringBootTest
+//@SpringBootTest
+//
+//public class UsuarioServiceTest {
 
-public class UsuarioServiceTest {
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    private final UsuarioRepository repository;
-
-    public UsuarioServiceTest(UsuarioRepository repository) {
-        this.repository = repository;
-    }
-
-    @Test
-    public void salvandoUsuario(){
-
-    }
-}
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
+//
+//    private final UsuarioRepository repository;
+//
+//    public UsuarioServiceTest(UsuarioRepository repository) {
+//        this.repository = repository;
+//    }
+//
+//    @Test
+//    public void salvandoUsuario(){
+//
+//    }
+//}
