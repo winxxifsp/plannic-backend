@@ -126,3 +126,17 @@ ttttttttttttteste
 02 fev. 2021 07:55:07,394 116792 [http-nio-8080-exec-3] INFO  UsuarioService  - Usuário salvo
 02 fev. 2021 07:56:17,948 0    [http-nio-8080-exec-1] INFO  UsuarioService  - Usuário salvo
 02 fev. 2021 07:57:31,864 0    [http-nio-8080-exec-2] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 16:14:46,580 0    [http-nio-8080-exec-3] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 16:15:12,702 26122 [http-nio-8080-exec-2] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 16:15:15,889 29309 [http-nio-8080-exec-4] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 16:16:55,853 0    [http-nio-8080-exec-2] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 16:17:17,903 22050 [http-nio-8080-exec-4] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 16:52:01,801 0    [http-nio-8080-exec-4] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 16:53:08,381 0    [http-nio-8080-exec-1] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 16:53:13,583 5202 [http-nio-8080-exec-3] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 16:53:21,381 13000 [http-nio-8080-exec-9] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 17:02:50,516 0    [http-nio-8080-exec-1] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 17:33:21,057 0    [http-nio-8080-exec-1] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 17:33:24,685 3628 [http-nio-8080-exec-6] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 17:33:33,722 12665 [http-nio-8080-exec-4] INFO  UsuarioService  - Usuário salvo
+02 fev 2021 17:35:47,231 146174 [http-nio-8080-exec-8] INFO  UsuarioService  - Usuário salvo
