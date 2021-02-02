@@ -52,11 +52,13 @@ public class UsuarioService {
     }
 
     public void save(Usuario usuario) {
-        logger.info("Usuário salvo");
         var senha = usuario.getPassword();
         usuario.setPassword(passwordEncoder.encode(senha));
         ModelMapper mapper = new ModelMapper();
-        repository.save(mapper.map(usuario, Usuario.class));
+        var usuarioSalvo = repository.save(mapper.map(usuario, Usuario.class));
+        MDC.put("user_id", usuarioSalvo.getId());
+        logger.info("Usuário salvo");
+
 
     }
 
