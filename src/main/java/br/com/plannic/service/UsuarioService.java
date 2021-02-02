@@ -4,6 +4,7 @@ import br.com.plannic.controller.AuthenticateController;
 import br.com.plannic.model.Usuario;
 import br.com.plannic.repository.UsuarioRepository;
 import org.apache.log4j.Logger;
+import org.apache.log4j.MDC;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -28,13 +29,13 @@ public class UsuarioService {
 
     private final UsuarioRepository repository;
 
+
     private static Logger logger = Logger.getLogger(UsuarioService.class);
 
 
     public UsuarioService(UsuarioRepository repository) {
         this.repository = repository;
     }
-
 
     public List<Usuario> getAll() {
         ModelMapper mapper = new ModelMapper();
@@ -51,6 +52,9 @@ public class UsuarioService {
     }
 
     public void save(Usuario usuario) {
+        MDC.put("user_id", usuario.getId());
+        MDC.put("name", usuario.getNome());
+        MDC.clear();
         logger.info("Usuário salvo.");
         var senha = usuario.getPassword();
         usuario.setPassword(passwordEncoder.encode(senha));
@@ -63,6 +67,9 @@ public class UsuarioService {
         Optional<Usuario> usuarios = this.repository.findById(usuario.getId());
 
         if (usuarios.isPresent()) {
+            MDC.put("user_id", usuario.getId());
+            MDC.put("name", usuario.getNome());
+            MDC.clear();
             logger.info("Usuário atualizado.");
             ModelMapper mapper = new ModelMapper();
             repository.save(mapper.map(usuario, Usuario.class));
@@ -77,6 +84,9 @@ public class UsuarioService {
         Optional<Usuario> usuarios = this.repository.findById(usuario.getId());
 
         if (usuarios.isPresent()) {
+            MDC.put("user_id", usuario.getId());
+            MDC.put("name", usuario.getNome());
+            MDC.clear();
             logger.info("Usuário deletado.");
             this.repository.deleteById(usuario.getId());
             return true;
