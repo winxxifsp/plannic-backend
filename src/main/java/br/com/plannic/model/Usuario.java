@@ -15,9 +15,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
-    @Id
+
     @GeneratedValue
     private int id;
+    @Id
     private String email;
     private String password;
     private String nome;
