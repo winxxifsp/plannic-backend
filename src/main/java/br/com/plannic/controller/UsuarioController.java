@@ -24,7 +24,6 @@ public class UsuarioController {
     @PostMapping("/cadastro")
     public ResponseEntity<Usuario> save(@Valid @RequestBody Usuario usuario){
         MDC.clear();
-        MDC.put("user_id", usuario.getId());
         MDC.put("name", usuario.getNome());
         MDC.put("fluxo", "POST save");
         usuarioService.save(usuario);
