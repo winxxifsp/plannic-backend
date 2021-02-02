@@ -2,6 +2,7 @@ package br.com.plannic.controller;
 
 import br.com.plannic.model.Usuario;
 import br.com.plannic.service.UsuarioService;
+import org.apache.log4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,12 +23,20 @@ public class UsuarioController {
 
     @PostMapping("/cadastro")
     public ResponseEntity<Usuario> save(@Valid @RequestBody Usuario usuario){
+        MDC.clear();
+        MDC.put("user_id", usuario.getId());
+        MDC.put("name", usuario.getNome());
+        MDC.put("fluxo", "POST save");
         usuarioService.save(usuario);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity update(@RequestBody Usuario usuario) {
+        MDC.clear();
+        MDC.put("user_id", usuario.getId());
+        MDC.put("name", usuario.getNome());
+        MDC.put("fluxo", "PUT update");
         if(usuarioService.update(usuario)) {
             return new ResponseEntity<>(HttpStatus.OK);
         }
@@ -36,6 +45,10 @@ public class UsuarioController {
 
     @DeleteMapping
     public ResponseEntity delete(@RequestBody Usuario usuario) {
+        MDC.clear();
+        MDC.put("user_id", usuario.getId());
+        MDC.put("name", usuario.getNome());
+        MDC.put("fluxo", "DELETE delete");
         if (usuarioService.delete(usuario)) {
             return new ResponseEntity<>(HttpStatus.OK);
         }
@@ -44,6 +57,8 @@ public class UsuarioController {
 
     @GetMapping
     public ResponseEntity getAll() {
+        MDC.clear();
+        MDC.put("fluxo", "GET usuarios");
         return new ResponseEntity<>(usuarioService.getAll(), HttpStatus.OK);
     }
 }

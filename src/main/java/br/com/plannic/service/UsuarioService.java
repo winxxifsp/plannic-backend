@@ -52,15 +52,12 @@ public class UsuarioService {
     }
 
     public void save(Usuario usuario) {
-        MDC.getContext();
-        MDC.put("user_id", usuario.getId());
-        MDC.put("name", usuario.getNome());
-        MDC.getContext().clear();
         logger.info("Usuário salvo");
         var senha = usuario.getPassword();
         usuario.setPassword(passwordEncoder.encode(senha));
         ModelMapper mapper = new ModelMapper();
         repository.save(mapper.map(usuario, Usuario.class));
+
     }
 
 
@@ -68,10 +65,6 @@ public class UsuarioService {
         Optional<Usuario> usuarios = this.repository.findById(usuario.getId());
 
         if (usuarios.isPresent()) {
-            MDC.getContext();
-            MDC.put("user_id", usuario.getId());
-            MDC.put("name", usuario.getNome());
-            MDC.getContext().clear();
             logger.info("Usuário atualizado");
             ModelMapper mapper = new ModelMapper();
             repository.save(mapper.map(usuario, Usuario.class));
@@ -86,10 +79,6 @@ public class UsuarioService {
         Optional<Usuario> usuarios = this.repository.findById(usuario.getId());
 
         if (usuarios.isPresent()) {
-            MDC.getContext();
-            MDC.put("user_id", usuario.getId());
-            MDC.put("name", usuario.getNome());
-            MDC.getContext().clear();
             logger.info("Usuário deletado");
             this.repository.deleteById(usuario.getId());
             return true;
