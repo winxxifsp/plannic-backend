@@ -23,41 +23,55 @@ public class UsuarioController {
 
     @PostMapping("/cadastro")
     public ResponseEntity<Usuario> save(@Valid @RequestBody Usuario usuario){
+        try {
+            MDC.put("name", usuario.getNome());
+            MDC.put("fluxo", "POST save");
+            usuarioService.save(usuario);
+        }finally{
         MDC.clear();
-        MDC.put("name", usuario.getNome());
-        MDC.put("fluxo", "POST save");
-        usuarioService.save(usuario);
+        }
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity update(@RequestBody Usuario usuario) {
         MDC.clear();
-        MDC.put("user_id", usuario.getId());
-        MDC.put("name", usuario.getNome());
-        MDC.put("fluxo", "PUT update");
-        if(usuarioService.update(usuario)) {
-            return new ResponseEntity<>(HttpStatus.OK);
+        try {
+            MDC.put("user_id", usuario.getId());
+            MDC.put("name", usuario.getNome());
+            MDC.put("fluxo", "PUT update");
+            if(usuarioService.update(usuario)) {
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+        }finally{
+            MDC.clear();
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping
     public ResponseEntity delete(@RequestBody Usuario usuario) {
-        MDC.clear();
-        MDC.put("user_id", usuario.getId());
-        MDC.put("name", usuario.getNome());
-        MDC.put("fluxo", "DELETE delete");
-        if (usuarioService.delete(usuario)) {
-            return new ResponseEntity<>(HttpStatus.OK);
+        try {
+            MDC.put("user_id", usuario.getId());
+            MDC.put("name", usuario.getNome());
+            MDC.put("fluxo", "DELETE delete");
+            if (usuarioService.delete(usuario)) {
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+        }finally{
+            MDC.clear();
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping
     public ResponseEntity getAll() {
-        MDC.clear();
-        MDC.put("fluxo", "GET usuarios");
-        return new ResponseEntity<>(usuarioService.getAll(), HttpStatus.OK);
+        try{
+            MDC.put("fluxo", "GET usuarios");
+            return new ResponseEntity<>(usuarioService.getAll(), HttpStatus.OK);
+        }finally {
+            MDC.clear();
+        }
+
     }
 }

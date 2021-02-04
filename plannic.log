@@ -140,3 +140,17 @@ ttttttttttttteste
 02 fev 2021 17:33:24,685 3628 [http-nio-8080-exec-6] INFO  UsuarioService  - Usuário salvo
 02 fev 2021 17:33:33,722 12665 [http-nio-8080-exec-4] INFO  UsuarioService  - Usuário salvo
 02 fev 2021 17:35:47,231 146174 [http-nio-8080-exec-8] INFO  UsuarioService  - Usuário salvo
+02 fev. 2021 21:14:43,822 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:17:14,333 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:17:44,091 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:18:07,306 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:19:31,275 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:21:05,078 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:24:12,011 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:24:50,385 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:26:19,872 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:26:37,230 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:31:32,132 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:31:53,205 1    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:36:50,925 0    [main] INFO  UsuarioService  - testando log
+02 fev. 2021 21:37:20,599 0    [main] INFO  UsuarioService  - testando log
