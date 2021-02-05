@@ -14,7 +14,7 @@ public class PlannicApplication {
 	public static void main(String[] args) {
 		System.setProperty("DATABASE_PASSWORD", System.getenv("DATABASE_PASSWORD"));
 		System.setProperty("DATABASE_USERNAME", System.getenv("DATABASE_USERNAME"));
-		System.setProperty("DATABASE_URL", System.getenv("DATABASE_URL"));
+		System.setProperty("DB_URL", System.getenv("DB_URL"));
 		PropertyConfigurator.configure("src/main/resources/log4j.properties");
 		SpringApplication.run(PlannicApplication.class, args);
 	}
