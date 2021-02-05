@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -20,4 +21,5 @@ public class Usuario {
     private String email;
     private String password;
     private String nome;
+    private LocalDateTime data = LocalDateTime.now();
 }
